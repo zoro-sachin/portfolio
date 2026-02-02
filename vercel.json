@@ -16,15 +16,23 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/backend/server.js"
+            "destination": "backend/server.js"
         },
         {
             "source": "/health",
-            "destination": "/backend/server.js"
+            "destination": "backend/server.js"
+        },
+        {
+            "source": "/static/(.*)",
+            "destination": "frontend/static/$1"
+        },
+        {
+            "source": "/(.*)\\.(js|css|png|jpg|jpeg|gif|ico|json|svg)",
+            "destination": "frontend/$1.$2"
         },
         {
             "source": "/(.*)",
-            "destination": "/frontend/index.html"
+            "destination": "frontend/index.html"
         }
     ]
 }
