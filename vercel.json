@@ -16,19 +16,19 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/backend/server.js"
+            "destination": "backend/server.js"
         },
         {
             "source": "/health",
-            "destination": "/backend/server.js"
+            "destination": "backend/server.js"
         },
         {
             "source": "/(.*)",
-            "destination": "/frontend/$1"
+            "destination": "frontend/$1"
         },
         {
             "source": "/(.*)",
-            "destination": "/frontend/index.html"
+            "destination": "frontend/index.html"
         }
     ]
 }
