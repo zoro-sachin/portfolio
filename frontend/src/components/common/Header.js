@@ -43,7 +43,6 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-<<<<<<< HEAD
             <Link
               to="/login"
               className="btn btn-secondary"
@@ -51,9 +50,6 @@ const Header = () => {
             >
               Login
             </Link>
-=======
-
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
           </div>
 
           <button

@@ -48,21 +48,14 @@ const Contact = () => {
             <div className="contact-info">
               <h1 className="section-title">Get In Touch</h1>
               <p>
-<<<<<<< HEAD
-                I'm always interested in hearing about new opportunities and projects. 
-                Feel free to reach out if you'd like to collaborate!
-              </p>
-              
-=======
                 I'm always interested in hearing about new opportunities and projects.
                 Feel free to reach out if you'd like to collaborate!
               </p>
 
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
               <div className="contact-details">
                 <div className="contact-item">
                   <h4>Email</h4>
-                  <p>sachinzoro001@gmail.com</p>
+                  <p>sachins.devp@gmail.com</p>
                 </div>
                 <div className="contact-item">
                   <h4>Location</h4>
@@ -73,11 +66,6 @@ const Contact = () => {
                   <div className="social-links">
                     <a href="https://github.com/sachinzoro005" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://www.instagram.com/moon_.only_?igsh=MTg5bXkyMWozcjE5Yg==" target="_blank" rel="noopener noreferrer">Instagram</a>
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
                   </div>
                 </div>
               </div>
@@ -95,11 +83,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-<<<<<<< HEAD
-                
-=======
 
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
                 <div className="form-group">
                   <input
                     type="email"
@@ -110,11 +94,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-<<<<<<< HEAD
-                
-=======
 
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
                 <div className="form-group">
                   <input
                     type="text"
@@ -125,11 +105,7 @@ const Contact = () => {
                     required
                   />
                 </div>
-<<<<<<< HEAD
-                
-=======
 
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
                 <div className="form-group">
                   <textarea
                     name="message"
@@ -147,15 +123,9 @@ const Contact = () => {
                   </div>
                 )}
 
-<<<<<<< HEAD
-                <button 
-                  type="submit" 
-                  className="btn btn-primary full-width"
-=======
                 <button
                   type="submit"
                   className="pill-btn primary full-width"
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : 'Send Message'}

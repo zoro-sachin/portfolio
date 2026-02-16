@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ProjectCard from '../components/projects/ProjectCard';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import { projectsAPI } from '../services/api';
-
-<<<<<<< HEAD
 import GitHubProjects from '../components/projects/GitHubProjects';
+import staticProjects from '../data/projectsData';
 
-=======
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(staticProjects); // Initialize with static projects
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -22,42 +19,19 @@ const Projects = () => {
       setLoading(true);
       setError('');
       const response = await projectsAPI.getAll();
-      setProjects(response.data);
+      // Combine API projects with static ones, avoiding duplicates if necessary
+      // For simplicity, we just append them or replace if API is primary
+      if (response.data && response.data.length > 0) {
+        setProjects([...staticProjects, ...response.data]);
+      }
     } catch (err) {
-      setError('Failed to load projects. Please try again later.');
       console.error('Error fetching projects:', err);
+      // Keep static projects if API fails
+      setProjects(staticProjects);
     } finally {
       setLoading(false);
     }
   };
-
-  if (loading) {
-    return (
-      <div className="section">
-        <div className="container">
-          <div className="text-center">
-            <LoadingSpinner size="large" />
-            <p style={{ marginTop: '1rem' }}>Loading projects...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="section">
-        <div className="container">
-          <div className="error-message text-center">
-            <p>{error}</p>
-            <button onClick={fetchProjects} className="btn btn-primary" style={{ marginTop: '1rem' }}>
-              Try Again
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="projects-page">
@@ -69,23 +43,15 @@ const Projects = () => {
             a unique challenge and learning experience.
           </p>
 
-          {projects.length > 0 ? (
-            <div className="grid grid-3">
-              {projects.map((project, index) => (
-                <ProjectCard
-                  key={project._id}
-                  project={project}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="empty-state">
-              <h3>No projects found</h3>
-              <p>Check back later for updates!</p>
-            </div>
-          )}
-<<<<<<< HEAD
+          <div className="grid grid-3">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project._id || index}
+                project={project}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              />
+            ))}
+          </div>
 
           <div style={{ marginTop: '5rem' }}>
             <h2 className="section-title" style={{ fontSize: '2.5rem' }}>GitHub Repositories</h2>
@@ -94,8 +60,6 @@ const Projects = () => {
             </p>
             <GitHubProjects username="zoro-sachin" />
           </div>
-=======
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
         </div>
       </section>
     </div>

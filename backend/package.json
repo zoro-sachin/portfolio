@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-=======
     "start": "node server.js",
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -25,8 +22,4 @@
     "mongoose": "^8.19.1",
     "morgan": "^1.10.1"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
