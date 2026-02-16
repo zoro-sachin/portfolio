@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +10,7 @@
 }
 
 :root {
+<<<<<<< HEAD
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -25,10 +31,47 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--dark-bg);
   color: var(--text-primary);
+=======
+  /* New Palette based on Behance reference */
+  --bg-dark: #020202;
+  --bg-light: #F2F2E8;
+  --text-cream: #F2F2E8;
+  --text-dark: #0D0D0D;
+  --accent-glass: rgba(255, 255, 255, 0.05);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Retaining some gradients for subtle accents but muting them */
+  --primary-gradient: linear-gradient(135deg, #F2F2E8 0%, #dcdcd0 100%);
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-dark);
+  color: var(--text-cream);
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   line-height: 1.7;
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
+=======
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.section-title,
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -120,7 +163,11 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+=======
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   transition: left 0.6s;
 }
 
@@ -336,7 +383,11 @@ body {
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.1;
+<<<<<<< HEAD
   background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.8) 100%);
+=======
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -831,6 +882,10 @@ body {
     opacity: 0;
     transform: translateY(40px);
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   to {
     opacity: 1;
     transform: translateY(0);
@@ -838,17 +893,36 @@ body {
 }
 
 @keyframes float {
+<<<<<<< HEAD
   0%, 100% {
     transform: translateY(0px);
   }
+=======
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes spin {
+<<<<<<< HEAD
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+=======
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
 }
 
 .fade-in-up {
@@ -935,6 +1009,7 @@ body {
   .section {
     padding: 60px 0;
   }
+<<<<<<< HEAD
   
   .section-title {
     font-size: 2.5rem;
@@ -948,6 +1023,21 @@ body {
     padding: 0 15px;
   }
   
+=======
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   .menu-toggle {
     display: flex;
   }
@@ -999,12 +1089,20 @@ body {
     width: 100%;
     max-width: 280px;
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   .auth-container {
     margin: 1rem;
     padding: 2rem;
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   .modal-content {
     margin: 1rem;
     padding: 2rem;
@@ -1015,6 +1113,7 @@ body {
   .hero-title {
     font-size: 2rem;
   }
+<<<<<<< HEAD
   
   .section-title {
     font-size: 2rem;
@@ -1024,6 +1123,17 @@ body {
     padding: 0 10px;
   }
   
+=======
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   .btn {
     padding: 12px 24px;
     font-size: 0.9rem;

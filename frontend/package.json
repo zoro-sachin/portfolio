@@ -2,6 +2,10 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
+=======
+  "homepage": ".",
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -10,8 +14,15 @@
     "axios": "^1.12.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^7.9.4",
     "react-scripts": "5.0.1",
+=======
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.4",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.1.19",
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -38,4 +49,8 @@
       "last 1 safari version"
     ]
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055

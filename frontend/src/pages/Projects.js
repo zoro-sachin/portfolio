@@ -3,8 +3,11 @@ import ProjectCard from '../components/projects/ProjectCard';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import { projectsAPI } from '../services/api';
 
+<<<<<<< HEAD
 import GitHubProjects from '../components/projects/GitHubProjects';
 
+=======
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -82,6 +85,7 @@ const Projects = () => {
               <p>Check back later for updates!</p>
             </div>
           )}
+<<<<<<< HEAD
 
           <div style={{ marginTop: '5rem' }}>
             <h2 className="section-title" style={{ fontSize: '2.5rem' }}>GitHub Repositories</h2>
@@ -90,6 +94,8 @@ const Projects = () => {
             </p>
             <GitHubProjects username="zoro-sachin" />
           </div>
+=======
+>>>>>>> d4055dd1edbfdfba00ebf8c80b6022c7e82c0055
         </div>
       </section>
     </div>
