@@ -64,7 +64,7 @@ const Contact = () => {
                 <div className="contact-item">
                   <h4>Social</h4>
                   <div className="social-links">
-                    <a href="https://github.com/sachinzoro005" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://github.com/zoro-sachin" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://www.instagram.com/moon_.only_?igsh=MTg5bXkyMWozcjE5Yg==" target="_blank" rel="noopener noreferrer">Instagram</a>
                   </div>
                 </div>
