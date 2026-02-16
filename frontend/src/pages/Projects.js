@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ProjectCard from '../components/projects/ProjectCard';
-import LoadingSpinner from '../components/common/LoadingSpinner';
 import { projectsAPI } from '../services/api';
 import GitHubProjects from '../components/projects/GitHubProjects';
 import staticProjects from '../data/projectsData';
 
 const Projects = () => {
   const [projects, setProjects] = useState(staticProjects); // Initialize with static projects
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     fetchProjects();
@@ -16,8 +13,6 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      setLoading(true);
-      setError('');
       const response = await projectsAPI.getAll();
       // Combine API projects with static ones, avoiding duplicates if necessary
       // For simplicity, we just append them or replace if API is primary
@@ -28,8 +23,6 @@ const Projects = () => {
       console.error('Error fetching projects:', err);
       // Keep static projects if API fails
       setProjects(staticProjects);
-    } finally {
-      setLoading(false);
     }
   };
 

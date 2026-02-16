@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import styled, { keyframes } from 'styled-components';
-import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaStar, FaCodeBranch } from 'react-icons/fa';
 
 // Keyframes for animations
 const fadeInUp = keyframes`
@@ -189,106 +189,106 @@ const RetryButton = styled.button`
 `;
 
 const GitHubProjects = ({ username = 'zoro-sachin' }) => {
-    const [repos, setRepos] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const fetchRepos = async () => {
-        try {
-            setLoading(true);
-            setError(null);
-            const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+  const fetchRepos = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await axios.get(`https://api.github.com/users/${username}/repos`);
 
-            // Sort by updated_at and take first 6
-            const sortedRepos = response.data
-                .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-                .slice(0, 6);
+      // Sort by updated_at and take first 6
+      const sortedRepos = response.data
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .slice(0, 6);
 
-            setRepos(sortedRepos);
-        } catch (err) {
-            console.error('Error fetching repos:', err);
-            setError('Failed to fetch repositories. Please check your internet connection or try again later.');
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchRepos();
-    }, [username]);
-
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'short', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    };
-
-    if (loading) {
-        return (
-            <SectionContainer>
-                <Grid>
-                    {[...Array(6)].map((_, i) => (
-                        <SkeletonCard key={i}>
-                            <SkeletonHeader />
-                            <SkeletonText />
-                            <RepoFooter>
-                                <SkeletonFooter />
-                                <SkeletonFooter style={{ width: '30%' }} />
-                            </RepoFooter>
-                        </SkeletonCard>
-                    ))}
-                </Grid>
-            </SectionContainer>
-        );
+      setRepos(sortedRepos);
+    } catch (err) {
+      console.error('Error fetching repos:', err);
+      setError('Failed to fetch repositories. Please check your internet connection or try again later.');
+    } finally {
+      setLoading(false);
     }
+  }, [username]);
 
-    if (error) {
-        return (
-            <SectionContainer>
-                <ErrorContainer>
-                    <p>{error}</p>
-                    <RetryButton onClick={fetchRepos}>Retry Fetch</RetryButton>
-                </ErrorContainer>
-            </SectionContainer>
-        );
-    }
+  useEffect(() => {
+    fetchRepos();
+  }, [fetchRepos]);
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  if (loading) {
     return (
-        <SectionContainer>
-            <Grid>
-                {repos.map((repo, index) => (
-                    <Card
-                        key={repo.id}
-                        as="a"
-                        href={repo.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        delay={`${index * 0.1}s`}
-                    >
-                        <div>
-                            <RepoHeader>
-                                <RepoTitle>{repo.name}</RepoTitle>
-                                <FaGithub size={20} color="rgba(255,255,255,0.7)" />
-                            </RepoHeader>
-                            <RepoDescription>
-                                {repo.description || 'No description provided for this repository.'}
-                            </RepoDescription>
-                        </div>
-
-                        <RepoFooter>
-                            <TechStack>
-                                {repo.language && <TechBadge>{repo.language}</TechBadge>}
-                                <Stats>
-                                    <span><FaStar size={14} /> {repo.stargazers_count}</span>
-                                    <span><FaCodeBranch size={14} /> {repo.forks_count}</span>
-                                </Stats>
-                            </TechStack>
-                            <UpdateDate>Last updated: {formatDate(repo.updated_at)}</UpdateDate>
-                        </RepoFooter>
-                    </Card>
-                ))}
-            </Grid>
-        </SectionContainer>
+      <SectionContainer>
+        <Grid>
+          {[...Array(6)].map((_, i) => (
+            <SkeletonCard key={i}>
+              <SkeletonHeader />
+              <SkeletonText />
+              <RepoFooter>
+                <SkeletonFooter />
+                <SkeletonFooter style={{ width: '30%' }} />
+              </RepoFooter>
+            </SkeletonCard>
+          ))}
+        </Grid>
+      </SectionContainer>
     );
+  }
+
+  if (error) {
+    return (
+      <SectionContainer>
+        <ErrorContainer>
+          <p>{error}</p>
+          <RetryButton onClick={fetchRepos}>Retry Fetch</RetryButton>
+        </ErrorContainer>
+      </SectionContainer>
+    );
+  }
+
+  return (
+    <SectionContainer>
+      <Grid>
+        {repos.map((repo, index) => (
+          <Card
+            key={repo.id}
+            as="a"
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            delay={`${index * 0.1}s`}
+          >
+            <div>
+              <RepoHeader>
+                <RepoTitle>{repo.name}</RepoTitle>
+                <FaGithub size={20} color="rgba(255,255,255,0.7)" />
+              </RepoHeader>
+              <RepoDescription>
+                {repo.description || 'No description provided for this repository.'}
+              </RepoDescription>
+            </div>
+
+            <RepoFooter>
+              <TechStack>
+                {repo.language && <TechBadge>{repo.language}</TechBadge>}
+                <Stats>
+                  <span><FaStar size={14} /> {repo.stargazers_count}</span>
+                  <span><FaCodeBranch size={14} /> {repo.forks_count}</span>
+                </Stats>
+              </TechStack>
+              <UpdateDate>Last updated: {formatDate(repo.updated_at)}</UpdateDate>
+            </RepoFooter>
+          </Card>
+        ))}
+      </Grid>
+    </SectionContainer>
+  );
 };
 
 export default GitHubProjects;
