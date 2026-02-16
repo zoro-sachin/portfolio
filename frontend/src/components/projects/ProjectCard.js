@@ -21,12 +21,12 @@ const ProjectCard = ({ project, onEdit, onDelete, isAdmin = false }) => {
 
         <div className="project-links">
           {project.demoUrl && (
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="pill-btn primary small">
+            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '8px 20px', fontSize: '0.7rem' }}>
               Live Demo
             </a>
           )}
           {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="pill-btn outline small">
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.7rem' }}>
               GitHub
             </a>
           )}
@@ -34,10 +34,10 @@ const ProjectCard = ({ project, onEdit, onDelete, isAdmin = false }) => {
 
         {isAdmin && (
           <div className="project-actions">
-            <button onClick={() => onEdit(project)} className="pill-btn outline small">
+            <button onClick={() => onEdit(project)} className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.7rem' }}>
               Edit
             </button>
-            <button onClick={() => onDelete(project._id)} className="pill-btn primary small" style={{ background: '#dc3545', borderColor: '#dc3545' }}>
+            <button onClick={() => onDelete(project._id)} className="btn btn-danger" style={{ padding: '8px 20px', fontSize: '0.7rem' }}>
               Delete
             </button>
           </div>

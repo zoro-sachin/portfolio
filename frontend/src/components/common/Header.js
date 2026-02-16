@@ -26,42 +26,41 @@ const Header = () => {
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <nav className="nav">
-          <Link to="/" className="logo">
-            Portfolio
-          </Link>
+      <nav className="nav" style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Link to="/" className="logo">
+          SZ.
+        </Link>
 
-          <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+          {navItems.map((item) => (
             <Link
-              to="/login"
-              className="btn btn-secondary"
+              key={item.path}
+              to={item.path}
+              className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Login
+              {item.label}
             </Link>
-          </div>
-
-          <button
-            className="menu-toggle"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          ))}
+          <Link
+            to="/login"
+            className="btn btn-secondary"
+            style={{ padding: '10px 25px', fontSize: '0.8rem' }}
+            onClick={() => setIsMenuOpen(false)}
           >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </nav>
-      </div>
+            Login
+          </Link>
+        </div>
+
+        <button
+          className="menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
     </header>
   );
 };

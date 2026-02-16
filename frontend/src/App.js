@@ -9,13 +9,11 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import './styles/App.css';
-import './styles/HomeBehance.css';
 
 function App() {
   return (
     <Router>
-      <div className="App light-theme">
+      <div className="App">
         <AnimatedBackground />
         <Header />
         <main>

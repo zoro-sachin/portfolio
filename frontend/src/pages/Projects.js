@@ -29,27 +29,27 @@ const Projects = () => {
   return (
     <div className="projects-page">
       <section className="section">
-        <div className="container" style={{ maxWidth: '1200px' }}>
-          <h1 className="section-title">My Projects</h1>
-          <p className="section-subtitle text-center">
-            Here are some of the projects I've worked on. Each project represents
-            a unique challenge and learning experience.
+        <div className="container">
+          <span className="section-subtitle">Curation of work</span>
+          <h1 className="section-title">Selected Projects</h1>
+          <p className="section-subtitle" style={{ textTransform: 'none', marginTop: '-2rem' }}>
+            A detailed look at the digital products and experimental interfaces I've crafted.
           </p>
 
-          <div className="grid grid-3">
+          <div className="grid grid-3" style={{ marginTop: '4rem' }}>
             {projects.map((project, index) => (
               <ProjectCard
                 key={project._id || index}
                 project={project}
-                style={{ animationDelay: `${index * 0.1}s` }}
               />
             ))}
           </div>
 
-          <div style={{ marginTop: '5rem' }}>
-            <h2 className="section-title" style={{ fontSize: '2.5rem' }}>GitHub Repositories</h2>
-            <p className="section-subtitle text-center">
-              Explore my latest open-source contributions and projects directly from GitHub.
+          <div style={{ marginTop: '10rem' }}>
+            <span className="section-subtitle">Open Source</span>
+            <h2 className="section-title">GitHub Repositories</h2>
+            <p className="section-subtitle" style={{ textTransform: 'none', marginTop: '-2rem' }}>
+              Explore my latest contributions and ongoing technical experiments.
             </p>
             <GitHubProjects username="zoro-sachin" />
           </div>

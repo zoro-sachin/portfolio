@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/About.css';
-import LoadingSpinner from '../components/common/LoadingSpinner';
 import { aboutAPI } from '../services/api';
 import profileImg from '../assets/images/anime_avatar.png';
 
@@ -23,68 +21,49 @@ const About = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="section">
-        <LoadingSpinner size="large" />
-      </div>
-    );
-  }
-
   return (
     <div className="about-page">
       <section className="section">
         <div className="container">
-          <div className="about-content">
+          <div className="split-content">
             {/* LEFT CONTENT */}
-            <div className="about-text">
-              <h1 className="section-title">About Me</h1>
+            <div className="about-text fade-in-up">
+              <span className="section-subtitle" style={{ textAlign: 'left', margin: 0 }}>The Person Behind The Code</span>
+              <h1 className="section-title" style={{ textAlign: 'left', marginBottom: '30px' }}>Passionate <br /> Problem Solver</h1>
 
-              <div className="about-description">
-                {about?.content || (
+              <div className="about-description" style={{ color: 'var(--text-muted)', fontSize: '1.2rem', lineHeight: '1.8' }}>
+                {about?.content ? (
+                  <p>{about.content}</p>
+                ) : (
                   <>
-                    <p>
-                      I'm a passionate full-stack developer with expertise in
-                      modern web technologies.
+                    <p style={{ marginBottom: '20px' }}>
+                      I am a specialized full-stack developer based in Arcot, Tamil Nadu,
+                      dedicated to crafting seamless digital experiences that bridge
+                      the gap between complex logic and human-centered design.
                     </p>
                     <p>
-                      I love building clean, scalable, and user-friendly
-                      applications with AI integration.
+                      With an academic foundation in Information Technology and
+                      a professional certification as a Data Analyst, I integrate
+                      analytical depth with creative frontend engineering.
                     </p>
                   </>
                 )}
               </div>
 
-              <div className="skills-section">
-                <h3>Technologies & Skills</h3>
+              <div style={{ marginTop: '50px' }}>
+                <h3 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '20px' }}>Technical Artillery</h3>
 
-                <div className="skills-grid">
-                  <div className="skill-category">
-                    <h4>Frontend</h4>
-                    <div className="skills-list">
-                      <span className="pill-btn">React.js</span>
-                      <span className="pill-btn">JavaScript</span>
-                      <span className="pill-btn">HTML / CSS</span>
-                      <span className="pill-btn">Tailwind</span>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '40px' }}>
+                  <div>
+                    <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '15px' }}>Core Tech</h4>
+                    <div className="tech-list" style={{ marginTop: 0 }}>
+                      {['React', 'Node.js', 'Python', 'MongoDB'].map(s => <span key={s} className="tech-tag">{s}</span>)}
                     </div>
                   </div>
-
-                  <div className="skill-category">
-                    <h4>Backend</h4>
-                    <div className="skills-list">
-                      <span className="pill-btn">Node.js</span>
-                      <span className="pill-btn">Express</span>
-                      <span className="pill-btn">MongoDB</span>
-                    </div>
-                  </div>
-
-                  <div className="skill-category">
-                    <h4>Tools</h4>
-                    <div className="skills-list">
-                      <span className="pill-btn">Git</span>
-                      <span className="pill-btn">VS Code</span>
-                      <span className="pill-btn">ChatGPT</span>
-                      <span className="pill-btn">Canva</span>
+                  <div>
+                    <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '15px' }}>Analytical Tools</h4>
+                    <div className="tech-list" style={{ marginTop: 0 }}>
+                      {['SQL', 'Excel', 'VBA', 'Tableau'].map(s => <span key={s} className="tech-tag">{s}</span>)}
                     </div>
                   </div>
                 </div>
@@ -92,11 +71,45 @@ const About = () => {
             </div>
 
             {/* RIGHT IMAGE */}
-            <div className="about-image">
-              <div className="avatar-wrapper">
-                <img src={profileImg} alt="Profile Avatar" />
-                <span className="code-icon">&lt;/&gt;</span>
+            <div className="about-image fade-in-up" style={{ animationDelay: '0.2s', position: 'relative' }}>
+              <div style={{
+                position: 'relative',
+                borderRadius: '40px',
+                overflow: 'hidden',
+                border: '1px solid var(--glass-border)',
+                aspectRatio: '4/5',
+                background: 'var(--glass-bg)'
+              }}>
+                <img src={profileImg} alt="Sachin S." style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '30px',
+                  right: '30px',
+                  background: 'var(--text-silk)',
+                  color: 'var(--bg-onyx)',
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.2rem',
+                  fontWeight: '700'
+                }}>
+                  S.
+                </div>
               </div>
+              {/* Decorative Glow */}
+              <div style={{
+                position: 'absolute',
+                top: '-20%',
+                right: '-20%',
+                width: '100%',
+                height: '100%',
+                background: 'var(--glow-gradient)',
+                zIndex: -1,
+                opacity: 0.5
+              }} />
             </div>
           </div>
         </div>
